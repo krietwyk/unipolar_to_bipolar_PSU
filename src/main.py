@@ -129,7 +129,7 @@ async def handle_serial():
                 try:
                     txt = command.split(':')[1]
                     pins_new = [int(re.findall("\d+", s)[0]) for s in txt]
-                    if (len(d) == len(set(d))) and max(pins_new < 40) and min(pins_new >= 0):
+                    if (len(pins_new) == len(set(pins_new))) and max(pins_new < 40) and min(pins_new >= 0):
                         gpio_pins = {pins_new[0]: machine.Pin(pins_new[0], machine.Pin.OUT), 
                                      pins_new[1]: machine.Pin(pins_new[1], machine.Pin.OUT), 
                                      pins_new[2]: machine.Pin(pins_new[2], machine.Pin.OUT)}
